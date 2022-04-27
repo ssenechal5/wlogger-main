@@ -1,0 +1,3 @@
+# Copied from keycloak adapter core
+org.keycloak.adapters.authorization.cip.ClaimsInformationPointProviderFactory
+org.keycloak.adapters.authorization.cip.HttpClaimInformationPointProviderFactory

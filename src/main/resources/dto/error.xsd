@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+			jxb:version="2.0"
+			targetNamespace="http://www.actility.com/smp/ws/common"
+			xmlns="http://www.actility.com/smp/ws/common">
+	<xsd:element name="error" type="ErrorTO"/>
+    <xsd:complexType name="ErrorTO">
+        <xsd:sequence>
+            <xsd:element name="code" type="xsd:int"/>
+            <xsd:element name="message" type="xsd:string"/>
+            <xsd:element name="info1" type="xsd:string"/>
+            <xsd:element name="info2" type="xsd:string"/>
+			<xsd:element name="errors" minOccurs="0">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="csv" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>
+			

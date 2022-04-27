@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="data" type="data"/>
+
+  <xs:element name="disclaimer" type="disclaimer"/>
+
+  <xs:element name="element" type="element"/>
+
+  <xs:element name="elementAlr" type="elementAlr"/>
+
+  <xs:element name="elementAuth" type="elementAuth"/>
+
+  <xs:element name="elementChains" type="elementChains"/>
+
+  <xs:element name="elementCustomerData" type="elementCustomerData"/>
+
+  <xs:element name="elementCustomerId" type="elementCustomerId"/>
+
+  <xs:element name="elementDeviceHistory" type="elementDeviceHistory"/>
+
+  <xs:element name="elementDeviceHistoryExtract" type="elementDeviceHistoryExtract"/>
+
+  <xs:element name="elementDeviceHistoryLte" type="elementDeviceHistoryLte"/>
+
+  <xs:element name="elementDeviceHistoryLteExtract" type="elementDeviceHistoryLteExtract"/>
+
+  <xs:element name="elementLfd" type="elementLfd"/>
+
+  <xs:element name="elementLoc" type="elementLoc"/>
+
+  <xs:element name="elementLrrs" type="elementLrrs"/>
+
+  <xs:element name="elementSimple" type="elementSimple"/>
+
+  <xs:element name="elementStr" type="elementStr"/>
+
+  <xs:element name="responseData" type="responseData"/>
+
+  <xs:element name="responseDatas" type="responseDatas"/>
+
+  <xs:element name="responseList" type="responseList"/>
+
+  <xs:element name="responseSimple" type="responseSimple"/>
+  
+  <xs:element name="responseEngine" type="responseEngine"/>
+  
+  <xs:element name="elementModel" type="elementModel"/>
+  <xs:element name="elementData" type="elementData"/>
+  <xs:element name="elementMeta" type="elementMeta"/>
+  <xs:element name="elementMetaOutput" type="elementMetaOutput"/>
+  <xs:element name="elementLorawan" type="elementLorawan"/>
+  <xs:element name="elementThing" type="elementThing"/>
+  <xs:element name="elementThingOutput" type="elementThingOutput"/>
+  <xs:element name="elementRaw" type="elementRaw"/>
+  <xs:element name="elementError" type="elementError"/>
+  <xs:element name="elementEngineFrame" type="elementEngineFrame"/>
+  <xs:element name="elementEngineFrameOutput" type="elementEngineFrameOutput"/>
+  <xs:element name="elementEngineInput" type="elementEngineInput"/>
+  <xs:element name="elementEngineOutput" type="elementEngineOutput"/>
+
+  <xs:complexType name="elementChains">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="chain" type="xs:string" minOccurs="0"/>
+          <xs:element name="channel" type="xs:string" minOccurs="0"/>
+          <xs:element name="time" type="xs:string" minOccurs="0"/>
+          <xs:element name="ttype" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="element">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="responseList">
+    <xs:complexContent>
+      <xs:extension base="responseSimple">
+        <xs:sequence>
+          <xs:element name="data" type="element" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="responseSimple">
+    <xs:sequence>
+      <xs:element name="statusCode" type="xs:string" minOccurs="0"/>
+      <xs:element name="success" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="error" type="xs:string" minOccurs="0"/>
+      <xs:element name="errorCode" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="elementSimple">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="name" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elementLrrs">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="Lrrid" type="xs:string" minOccurs="0"/>
+          <xs:element name="LrrRSSI" type="xs:string" minOccurs="0"/>
+          <xs:element name="LrrSNR" type="xs:string" minOccurs="0"/>
+          <xs:element name="LrrESP" type="xs:string" minOccurs="0"/>
+          <xs:element name="LrrChains" type="element" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="gwOp" type="xs:string" minOccurs="0"/>
+          <xs:element name="gwID" type="xs:string" minOccurs="0"/>
+          <xs:element name="gwTk" type="xs:string" minOccurs="0"/>
+          <xs:element name="gwDL" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="data">
+    <xs:complexContent>
+      <xs:extension base="elementSimple">
+        <xs:sequence>
+          <xs:element name="value" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elementCustomerData">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="loc" type="element" minOccurs="0"/>
+          <xs:element name="alr" type="element" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elementDeviceHistoryExtract">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="timestampUTC" type="xs:string" minOccurs="0"/>
+          <xs:element name="direction" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevEUI" type="xs:string" minOccurs="0"/>
+          <xs:element name="LrcId" type="xs:string" minOccurs="0"/>
+          <xs:element name="ACKbit" type="xs:string" minOccurs="0"/>
+          <xs:element name="ADRAckReq" type="xs:string" minOccurs="0"/>
+          <xs:element name="ADRbit" type="xs:string" minOccurs="0"/>
+          <xs:element name="AckRequested" type="xs:string" minOccurs="0"/>
+          <xs:element name="AirTime" type="xs:string" minOccurs="0"/>
+          <xs:element name="MType" type="xs:string" minOccurs="0"/>
+          <xs:element name="MTypeText" type="xs:string" minOccurs="0"/>
+          <xs:element name="FCnt" type="xs:string" minOccurs="0"/>
+          <xs:element name="FPort" type="xs:string" minOccurs="0"/>
+          <xs:element name="PayloadSize" type="xs:string" minOccurs="0"/>
+          <xs:element name="payload_hex" type="xs:string" minOccurs="0"/>
+          <xs:element name="payload_decoded" type="xs:string" minOccurs="0"/>
+          <xs:element name="rawMacCommands" type="xs:string" minOccurs="0"/>
+          <xs:element name="mac_decoded" type="xs:string" minOccurs="0"/>
+          <xs:element name="mic_hex" type="xs:string" minOccurs="0"/>
+          <xs:element name="SpFact" type="xs:string" minOccurs="0"/>
+          <xs:element name="SubBand" type="xs:string" minOccurs="0"/>
+          <xs:element name="Channel" type="xs:string" minOccurs="0"/>
+          <xs:element name="Lrrid" type="xs:string" minOccurs="0"/>
+          <xs:element name="LrrRSSI" type="xs:string" minOccurs="0"/>
+          <xs:element name="LrrSNR" type="xs:string" minOccurs="0"/>
+          <xs:element name="LrrESP" type="xs:string" minOccurs="0"/>
+          <xs:element name="LrrLAT" type="xs:string" minOccurs="0"/>
+          <xs:element name="LrrLON" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevLAT" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevLON" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevLocRadius" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevLocTime" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevAlt" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevAltRadius" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevAcc" type="xs:string" minOccurs="0"/>
+          <xs:element name="GwCnt" type="xs:string" minOccurs="0"/>
+          <xs:element name="Lrrs" type="element" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="customerData" type="element" minOccurs="0"/>
+          <xs:element name="late" type="xs:string" minOccurs="0"/>
+          <xs:element name="SolvLAT" type="xs:string" minOccurs="0"/>
+          <xs:element name="SolvLON" type="xs:string" minOccurs="0"/>
+          <xs:element name="FPending" type="xs:string" minOccurs="0"/>
+          <xs:element name="RX1RX2Delay" type="xs:string" minOccurs="0"/>
+          <xs:element name="DLStatus" type="xs:string" minOccurs="0"/>
+          <xs:element name="DLFailedCause1" type="xs:string" minOccurs="0"/>
+          <xs:element name="DLFailedCause2" type="xs:string" minOccurs="0"/>
+          <xs:element name="DLFailedCause3" type="xs:string" minOccurs="0"/>
+          <xs:element name="DLStatusText" type="xs:string" minOccurs="0"/>
+          <xs:element name="DLFailedCause1Text" type="xs:string" minOccurs="0"/>
+          <xs:element name="DLFailedCause2Text" type="xs:string" minOccurs="0"/>
+          <xs:element name="DLFailedCause3Text" type="xs:string" minOccurs="0"/>
+          <xs:element name="gwOp" type="xs:string" minOccurs="0"/>
+          <xs:element name="gwID" type="xs:string" minOccurs="0"/>
+          <xs:element name="gwTk" type="xs:string" minOccurs="0"/>
+          <xs:element name="ismb" type="xs:string" minOccurs="0"/>
+          <xs:element name="mod" type="xs:string" minOccurs="0"/>
+          <xs:element name="dr" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevNorthVelocity" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevEastVelocity" type="xs:string" minOccurs="0"/>
+          <xs:element name="asID" type="xs:string" minOccurs="0"/>
+          <xs:element name="subscriberID" type="xs:string" minOccurs="0"/>
+          <xs:element name="mcc" type="xs:string" minOccurs="0"/>
+          <xs:element name="tss" type="xs:string" minOccurs="0"/>
+          <xs:element name="lcn" type="xs:string" minOccurs="0"/>
+          <xs:element name="lsc" type="xs:string" minOccurs="0"/>
+          <xs:element name="lfc" type="xs:string" minOccurs="0"/>
+          <xs:element name="rt" type="xs:string" minOccurs="0"/>
+          <xs:element name="rr" type="xs:string" minOccurs="0"/>
+          <xs:element name="aFCntDown" type="xs:string" minOccurs="0"/>
+          <xs:element name="nFCntDown" type="xs:string" minOccurs="0"/>
+          <xs:element name="confAFCntDown" type="xs:string" minOccurs="0"/>
+          <xs:element name="confNFCntDown" type="xs:string" minOccurs="0"/>
+          <xs:element name="confFCntUp" type="xs:string" minOccurs="0"/>
+          <xs:element name="lfd" type="element" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="ts" type="xs:string" minOccurs="0"/>
+          <xs:element name="rul" type="xs:string" minOccurs="0"/>
+          <xs:element name="freq" type="xs:string" minOccurs="0"/>
+          <xs:element name="class" type="xs:string" minOccurs="0"/>
+          <xs:element name="bper" type="xs:string" minOccurs="0"/>
+          <xs:element name="notifTp" type="xs:string" minOccurs="0"/>
+          <xs:element name="resetTp" type="xs:string" minOccurs="0"/>
+          <xs:element name="payload_driver_id" type="xs:string" minOccurs="0"/>
+          <xs:element name="payload_driver_model" type="xs:string" minOccurs="0"/>
+          <xs:element name="payload_driver_application" type="xs:string" minOccurs="0"/>
+          <xs:element name="payload_decoding_error" type="xs:string" minOccurs="0"/>
+          <xs:element name="lcMU" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="responseDatas">
+    <xs:complexContent>
+      <xs:extension base="responseSimple">
+        <xs:sequence>
+          <xs:element name="data" type="element" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="more" type="xs:boolean" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:complexType name="elementAlr">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="pro" type="xs:string" minOccurs="0"/>
+          <xs:element name="ver" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="disclaimer">
+    <xs:sequence>
+      <xs:element name="who" type="xs:string" minOccurs="0"/>
+      <xs:element name="previousConnection" type="xs:string" minOccurs="0"/>
+      <xs:element name="thingparkLastUnsuccessfulLogin" type="xs:string" minOccurs="0"/>
+      <xs:element name="thingparkPreviousBadConsecutivePwd" type="xs:int" minOccurs="0"/>
+      <xs:element name="disclaimerMessage" type="xs:string" minOccurs="0"/>
+      <xs:element name="disclaimerRequired" type="xs:boolean" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="elementDeviceHistoryLteExtract">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="timestampUTC" type="xs:string" minOccurs="0"/>
+          <xs:element name="direction" type="xs:string" minOccurs="0"/>
+          <xs:element name="MType" type="xs:string" minOccurs="0"/>
+          <xs:element name="MTypeText" type="xs:string" minOccurs="0"/>
+          <xs:element name="IPV4" type="xs:string" minOccurs="0"/>
+          <xs:element name="IMEI" type="xs:string" minOccurs="0"/>
+          <xs:element name="IMSI" type="xs:string" minOccurs="0"/>
+          <xs:element name="payload_hex" type="xs:string" minOccurs="0"/>
+          <xs:element name="payload_decoded" type="xs:string" minOccurs="0"/>
+          <xs:element name="MTC" type="xs:string" minOccurs="0"/>
+          <xs:element name="LrcId" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevLAT" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevLON" type="xs:string" minOccurs="0"/>
+          <xs:element name="Late" type="xs:string" minOccurs="0"/>
+          <xs:element name="Cause" type="xs:string" minOccurs="0"/>
+          <xs:element name="EBI" type="xs:string" minOccurs="0"/>
+          <xs:element name="APN" type="xs:string" minOccurs="0"/>
+          <xs:element name="MSISDN" type="xs:string" minOccurs="0"/>
+          <xs:element name="RAT" type="xs:string" minOccurs="0"/>
+          <xs:element name="CELLID" type="xs:string" minOccurs="0"/>
+          <xs:element name="CELLTAC" type="xs:string" minOccurs="0"/>
+          <xs:element name="SERVNET" type="xs:string" minOccurs="0"/>
+          <xs:element name="MCCMNC" type="xs:string" minOccurs="0"/>
+          <xs:element name="asID" type="xs:string" minOccurs="0"/>
+          <xs:element name="mfSzU" type="xs:string" minOccurs="0"/>
+          <xs:element name="mfSzD" type="xs:string" minOccurs="0"/>
+          <xs:element name="mfDur" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:complexType name="elementDeviceHistory">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="uid" type="xs:string" minOccurs="0"/>
+          <xs:element name="direction" type="xs:string" minOccurs="0"/>
+          <xs:element name="timestamp" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevEUI" type="xs:string" minOccurs="0"/>
+          <xs:element name="FPort" type="xs:string" minOccurs="0"/>
+          <xs:element name="FCnt" type="xs:string" minOccurs="0"/>
+          <xs:element name="payload_hex" type="xs:string" minOccurs="0"/>
+          <xs:element name="mic_hex" type="xs:string" minOccurs="0"/>
+          <xs:element name="LrrRSSI" type="xs:string" minOccurs="0"/>
+          <xs:element name="LrrSNR" type="xs:string" minOccurs="0"/>
+          <xs:element name="LrrESP" type="xs:string" minOccurs="0"/>
+          <xs:element name="SpFact" type="xs:string" minOccurs="0"/>
+          <xs:element name="AirTime" type="xs:string" minOccurs="0"/>
+          <xs:element name="SubBand" type="xs:string" minOccurs="0"/>
+          <xs:element name="Channel" type="xs:string" minOccurs="0"/>
+          <xs:element name="Lrrid" type="xs:string" minOccurs="0"/>
+          <xs:element name="LrrLAT" type="xs:string" minOccurs="0"/>
+          <xs:element name="LrrLON" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevLrrCnt" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevLAT" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevLON" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevLocRadius" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevLocTime" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevAlt" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevAltRadius" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevAcc" type="xs:string" minOccurs="0"/>
+          <xs:element name="customerId" type="xs:string" minOccurs="0"/>
+          <xs:element name="customerData" type="xs:string" minOccurs="0"/>
+          <xs:element name="LrcId" type="xs:string" minOccurs="0"/>
+          <xs:element name="timestampUTC" type="xs:string" minOccurs="0"/>
+          <xs:element name="rawMacCommands" type="xs:string" minOccurs="0"/>
+          <xs:element name="MType" type="xs:string" minOccurs="0"/>
+          <xs:element name="lrcRequestedRxDelay" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="ADRbit" type="xs:string" minOccurs="0"/>
+          <xs:element name="ADRAckReq" type="xs:string" minOccurs="0"/>
+          <xs:element name="AckRequested" type="xs:string" minOccurs="0"/>
+          <xs:element name="ACKbit" type="xs:string" minOccurs="0"/>
+          <xs:element name="FPending" type="xs:string" minOccurs="0"/>
+          <xs:element name="DLStatus" type="xs:string" minOccurs="0"/>
+          <xs:element name="DLFailedCause1" type="xs:string" minOccurs="0"/>
+          <xs:element name="DLFailedCause2" type="xs:string" minOccurs="0"/>
+          <xs:element name="DLFailedCause3" type="xs:string" minOccurs="0"/>
+          <xs:element name="distance" type="xs:string" minOccurs="0"/>
+          <xs:element name="LRRList" type="xs:string" minOccurs="0"/>
+          <xs:element name="MTypeText" type="xs:string" minOccurs="0"/>
+          <xs:element name="hasMac" type="xs:string" minOccurs="0"/>
+          <xs:element name="MACDecoded" type="xs:string" minOccurs="0"/>
+          <xs:element name="hasPayload" type="xs:string" minOccurs="0"/>
+          <xs:element name="payload_decoded" type="xs:string" minOccurs="0"/>
+          <xs:element name="DLStatusText" type="xs:string" minOccurs="0"/>
+          <xs:element name="DLFailedCause1Text" type="xs:string" minOccurs="0"/>
+          <xs:element name="DLFailedCause2Text" type="xs:string" minOccurs="0"/>
+          <xs:element name="DLFailedCause3Text" type="xs:string" minOccurs="0"/>
+          <xs:element name="Late" type="xs:string" minOccurs="0"/>
+          <xs:element name="SolvLAT" type="xs:string" minOccurs="0"/>
+          <xs:element name="SolvLON" type="xs:string" minOccurs="0"/>
+          <xs:element name="PayloadSize" type="xs:string" minOccurs="0"/>
+          <xs:element name="gwOp" type="xs:string" minOccurs="0"/>
+          <xs:element name="gwID" type="xs:string" minOccurs="0"/>
+          <xs:element name="gwTk" type="xs:string" minOccurs="0"/>
+          <xs:element name="ismb" type="xs:string" minOccurs="0"/>
+          <xs:element name="mod" type="xs:string" minOccurs="0"/>
+          <xs:element name="dr" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevNorthVelocity" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevEastVelocity" type="xs:string" minOccurs="0"/>
+          <xs:element name="asID" type="xs:string" minOccurs="0"/>
+          <xs:element name="mcc" type="xs:string" minOccurs="0"/>
+          <xs:element name="tss" type="xs:string" minOccurs="0"/>
+          <xs:element name="lcn" type="xs:string" minOccurs="0"/>
+          <xs:element name="lsc" type="xs:string" minOccurs="0"/>
+          <xs:element name="lfc" type="xs:string" minOccurs="0"/>
+          <xs:element name="rt" type="xs:string" minOccurs="0"/>
+          <xs:element name="rr" type="xs:string" minOccurs="0"/>
+          <xs:element name="aFCntDown" type="xs:string" minOccurs="0"/>
+          <xs:element name="nFCntDown" type="xs:string" minOccurs="0"/>
+          <xs:element name="confAFCntDown" type="xs:string" minOccurs="0"/>
+          <xs:element name="confNFCntDown" type="xs:string" minOccurs="0"/>
+          <xs:element name="confFCntUp" type="xs:string" minOccurs="0"/>
+          <xs:element name="lfd" type="xs:string" minOccurs="0"/>
+          <xs:element name="ts" type="xs:string" minOccurs="0"/>
+          <xs:element name="rul" type="xs:string" minOccurs="0"/>
+          <xs:element name="freq" type="xs:string" minOccurs="0"/>
+          <xs:element name="class" type="xs:string" minOccurs="0"/>
+          <xs:element name="bper" type="xs:string" minOccurs="0"/>
+          <xs:element name="notifTp" type="xs:string" minOccurs="0"/>
+          <xs:element name="resetTp" type="xs:string" minOccurs="0"/>
+          <xs:element name="payload_driver_id" type="xs:string" minOccurs="0"/>
+          <xs:element name="payload_driver_model" type="xs:string" minOccurs="0"/>
+          <xs:element name="payload_driver_application" type="xs:string" minOccurs="0"/>
+          <xs:element name="payload_decoding_error" type="xs:string" minOccurs="0"/>
+          <xs:element name="lcMU" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="responseData">
+    <xs:complexContent>
+      <xs:extension base="responseSimple">
+        <xs:sequence>
+          <xs:element name="data" type="element" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elementStr">
+    <xs:complexContent>
+      <xs:extension base="elementSimple">
+        <xs:sequence>
+          <xs:element name="type" type="xs:string" minOccurs="0"/>
+          <xs:element name="value" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elementLoc">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="lat" type="xs:string" minOccurs="0"/>
+          <xs:element name="lon" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:complexType name="elementAuth">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="ID" type="xs:string" minOccurs="0"/>
+          <xs:element name="href" type="xs:string" minOccurs="0"/>
+          <xs:element name="customerIds" type="element" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="sessionId" type="xs:string" minOccurs="0"/>
+          <xs:element ref="disclaimer" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elementCustomerId">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="customerId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elementDeviceHistoryLte">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="uid" type="xs:string" minOccurs="0"/>
+          <xs:element name="direction" type="xs:string" minOccurs="0"/>
+          <xs:element name="timestamp" type="xs:string" minOccurs="0"/>
+          <xs:element name="timestampUTC" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevEUI" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevAddr" type="xs:string" minOccurs="0"/>
+          <xs:element name="payload_hex" type="xs:string" minOccurs="0"/>
+          <xs:element name="Lrrid" type="xs:string" minOccurs="0"/>
+          <xs:element name="LrcId" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevLAT" type="xs:string" minOccurs="0"/>
+          <xs:element name="DevLON" type="xs:string" minOccurs="0"/>
+          <xs:element name="MType" type="xs:string" minOccurs="0"/>
+          <xs:element name="MTypeText" type="xs:string" minOccurs="0"/>
+          <xs:element name="hasPayload" type="xs:string" minOccurs="0"/>
+          <xs:element name="payload_decoded" type="xs:string" minOccurs="0"/>
+          <xs:element name="Late" type="xs:string" minOccurs="0"/>
+          <xs:element name="PayloadSize" type="xs:string" minOccurs="0"/>
+          <xs:element name="lteIPPacketSize" type="xs:string" minOccurs="0"/>
+          <xs:element name="IPV4Decoded" type="xs:string" minOccurs="0"/>
+          <xs:element name="ltePacketProtocol" type="xs:string" minOccurs="0"/>
+          <xs:element name="lteCause" type="xs:string" minOccurs="0"/>
+          <xs:element name="lteEBI" type="xs:string" minOccurs="0"/>
+          <xs:element name="lteAPN" type="xs:string" minOccurs="0"/>
+          <xs:element name="lteMSISDN" type="xs:string" minOccurs="0"/>
+          <xs:element name="lteIMSI" type="xs:string" minOccurs="0"/>
+          <xs:element name="lteRAT" type="xs:string" minOccurs="0"/>
+          <xs:element name="lteCELLID" type="xs:string" minOccurs="0"/>
+          <xs:element name="lteCELLTAC" type="xs:string" minOccurs="0"/>
+          <xs:element name="lteSERVNET" type="xs:string" minOccurs="0"/>
+          <xs:element name="lteMCCMNC" type="xs:string" minOccurs="0"/>
+          <xs:element name="lteIMEI" type="xs:string" minOccurs="0"/>
+          <xs:element name="asID" type="xs:string" minOccurs="0"/>
+          <xs:element name="mfSzU" type="xs:string" minOccurs="0"/>
+          <xs:element name="mfSzD" type="xs:string" minOccurs="0"/>
+          <xs:element name="mfDur" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elementLfd">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="dfc" type="xs:string" minOccurs="0"/>
+          <xs:element name="cnt" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="responseEngine">
+   <xs:sequence>
+     <xs:element name="list" type="elementEngineFrame" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+   </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="elementMeta">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="lorawan" type="elementLorawan" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:complexType name="elementMetaOutput">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="lorawan" type="elementLorawan" minOccurs="0"/>
+          <xs:element name="driverId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elementData">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="driverId" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elementThing">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="model" type="elementModel" minOccurs="0"/>
+          <xs:element name="application" type="elementModel" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:complexType name="elementThingOutput">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+<!--           <xs:element name="model" type="elementModel" minOccurs="0"/> -->
+<!--           <xs:element name="application" type="elementModel" minOccurs="0"/> -->
+          <xs:element name="model" type="xs:string" minOccurs="0"/>
+          <xs:element name="application" type="xs:string" minOccurs="0"/>
+          <xs:element name="points" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elementModel">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="producerId" type="xs:string" minOccurs="0"/>
+          <xs:element name="moduleId" type="xs:string" minOccurs="0"/>
+          <xs:element name="version" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:complexType name="elementLorawan">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="fport" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elementRaw">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="binary" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:complexType name="elementError">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="code" type="xs:string" minOccurs="0"/>
+          <xs:element name="data" type="elementData" minOccurs="0"/>
+          <xs:element name="message" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elementEngineFrame">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="id" type="xs:string" minOccurs="0"/>
+          <xs:element name="input" type="elementEngineInput" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:complexType name="elementEngineFrameOutput">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="id" type="xs:string" minOccurs="0"/>
+          <xs:element name="output" type="elementEngineOutput" minOccurs="0"/>
+          <xs:element name="error" type="elementError" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="elementEngineInput">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="direction" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceTime" type="xs:string" minOccurs="0"/>
+          <xs:element name="meta" type="elementMeta" minOccurs="0"/>
+          <xs:element name="thing" type="elementThing" minOccurs="0"/>
+          <xs:element name="raw" type="elementRaw" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+  <xs:complexType name="elementEngineOutput">
+    <xs:complexContent>
+      <xs:extension base="element">
+        <xs:sequence>
+          <xs:element name="direction" type="xs:string" minOccurs="0"/>
+          <xs:element name="sourceTime" type="xs:string" minOccurs="0"/>
+          <xs:element name="meta" type="elementMetaOutput" minOccurs="0"/>
+          <xs:element name="thing" type="elementThingOutput" minOccurs="0"/>
+          <xs:element name="raw" type="elementRaw" minOccurs="0"/>
+          <xs:element name="message" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  
+</xs:schema>
+

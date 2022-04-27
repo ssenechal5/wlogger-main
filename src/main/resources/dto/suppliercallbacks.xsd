@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           	targetNamespace="http://www.actility.com/smp/ws/supplier"
+           	xmlns:s="http://www.actility.com/smp/ws/supplier"
+           	xmlns:c="http://www.actility.com/smp/ws/common">
+           	<!-- elementFormDefault="qualified"> -->
+
+	<xsd:complexType name="StateType">
+  		<xsd:sequence>
+            <xsd:element name="value" type="xsd:string"/>
+            <xsd:element name="timestamp" type="xsd:dateTime"/>
+            <xsd:element name="info1" type="xsd:string"/>
+        </xsd:sequence>
+  	</xsd:complexType>
+  		
+    <!-- Callbacks -->
+	
+	<xsd:element name="subscribed" type="s:SubscribedDto"/>
+	
+	<xsd:complexType name="SubscribedDto">
+		<xsd:sequence>
+			<xsd:element name="transactionID" type="xsd:string"/>
+			<xsd:element name="operation" type="xsd:string"/>
+			<xsd:element name="operator">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ID" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="supplier">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="ID" type="xsd:string"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="href" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="updated" type="s:UpdatedDto"/>
+	
+	<xsd:complexType name="UpdatedDto">
+		<xsd:sequence>
+			<xsd:element name="transactionID" type="xsd:string"/>
+			<xsd:element name="application">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="state" type="s:StateType"/>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="href" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>	
+	
+	<xsd:element name="unsubscribed" type="s:UnsubscribedDto"/>
+	
+	<xsd:complexType name="UnsubscribedDto">
+		<xsd:sequence>
+			<xsd:element name="transactionID" type="xsd:string"/>
+			<xsd:element name="href" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	
+	
+</xsd:schema>

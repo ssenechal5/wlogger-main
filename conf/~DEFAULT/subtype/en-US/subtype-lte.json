@@ -1,0 +1,18 @@
+[
+	{
+		"text": "Uplink (Data)",
+		"value": "100"
+	},
+	{
+		"text": "Uplink (Session)",
+		"value": "101"
+	},
+	{
+		"text": "Downlink",
+		"value": "1100"
+	},
+	{
+		"text": "Microflow",
+		"value": "4000"
+	}
+]

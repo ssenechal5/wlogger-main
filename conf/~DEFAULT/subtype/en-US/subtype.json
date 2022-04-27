@@ -1,0 +1,50 @@
+[
+	{
+		"text": "Uplink (Data only)",
+		"value": "0"
+	},
+	{
+		"text": "Uplink (MAC + Data)",
+		"value": "1"
+	},
+	{
+		"text": "Uplink (MAC only)",
+		"value": "2"
+	},
+	{
+		"text": "Uplink (Join)",
+		"value": "4"
+	},
+	{
+		"text": "Downlink Unicast (Data only)",
+		"value": "1000"
+	},
+	{
+		"text": "Downlink Unicast (MAC + Data)",
+		"value": "1001"
+	},
+	{
+		"text": "Downlink Unicast (MAC only)",
+		"value": "1002"
+	},
+	{
+		"text": "Downlink Unicast (Join)",
+		"value": "1004"
+	},
+	{
+		"text": "Downlink Multicast",
+		"value": "1005"
+	},
+	{
+		"text": "Multicast Summary",
+		"value": "3000"
+	},
+	{
+		"text": "Location",
+		"value": "2000"
+	},
+	{
+		"text": "Device Reset",
+		"value": "5000"
+	}
+]

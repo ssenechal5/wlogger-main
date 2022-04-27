@@ -1,0 +1,167 @@
+[
+	  {
+		"level": "INFO",
+		"msg": "Invalid query parameter.",
+		"code": 1
+	  },
+	  {
+		"level": "INFO",
+		"msg": "Invalid document.",
+		"code": 2
+	  },
+	  {
+		"level": "INFO",
+		"msg": "Permission denied, not authorized to perform the operation.",
+		"code": 3
+	  },
+	  {
+		"level": "INFO",
+		"msg": "For security reasons, your session has expired due to inactivity. Please log in again.",
+		"code": 4
+	  },
+	  {
+		"level": "INFO",
+		"msg": "Unexpected exception.",
+		"code": 6
+	  },
+	  {
+		"level": "INFO",
+		"msg": "Not found exception.",
+		"code": 7
+	  },
+	  {
+		"level": "INFO",
+		"msg": "Bad request exception.",
+		"code": 8
+	  },
+	  {
+		"level": "INFO",
+		"msg": "XML parsing exception.",
+		"code": 10
+	  },
+	  {
+		"level": "INFO",
+		"msg": "Resource not found.",
+		"code": 31
+	  },
+	  {
+		"level": "INFO",
+		"msg": "Operator not found.",
+		"code": 34
+	  },
+	  {
+		"level": "INFO",
+		"msg": "Subscription not found.",
+		"code": 51
+	  },
+	  {
+		"level": "ERROR",
+		"msg": "Configuration error, please contact your administrator.",
+		"code": 91
+	  },
+	  {
+		"level": "ERROR",
+		"msg": "Configuration error, please contact your administrator.",
+		"code": 92
+	  },
+	  {
+		"level": "ERROR",
+		"msg": "Configuration error, please contact your administrator.",
+		"code": 93
+	  },
+	  {
+		"level": "ERROR",
+		"msg": "Configuration error, please contact your administrator.",
+		"code": 94
+	  },
+	  {
+		"level": "INFO",
+		"msg": "Unknown ID.",
+		"code": 121
+	  },
+	  {
+		"level": "INFO",
+		"msg": "SMP authentication failed.",
+		"code": 142
+	  },
+	  {
+		"level": "INFO",
+		"msg": "Missing access code.",
+		"code": 143
+	  },
+	  {
+		"level": "INFO",
+		"msg": "No Subscription in Wlogger for href.",
+		"code": 149
+	  },
+	  {
+		"level": "INFO",
+		"msg": "No SMP subscription.",
+		"code": 151
+	  },
+	  {
+		"level": "INFO",
+		"msg": "Authentication failed, Subscription SUSPENDED for href.",
+		"code": 153
+	  },
+	  {
+		"level": "INFO",
+		"msg": "Authentication failed, Subscription DEACTIVATED for href.",
+		"code": 154
+	  },
+	  {
+		"level": "INFO",
+		"msg": "Authentication failed, no Subscription in WLogger for subscriber ID.",
+		"code": 158
+	  },
+	  {
+		"level": "INFO",
+		"msg": "Authentication failed, Subscription DEACTIVATED for subscriber ID.",
+		"code": 159
+	  },
+	  {
+		"level": "INFO",
+		"msg": "Authentication failed, Subscription SUSPENDED for subscriber ID.",
+		"code": 162
+	  },
+	  {
+		"level": "INFO",
+		"msg": "Authentication failed, invalid session.",
+		"code": 163
+	  },
+	  {
+		"level": "INFO",
+		"msg": "Authentication failed, not authenticated.",
+		"code": 164
+	  },
+	  {
+		"level": "INFO",
+		"msg": "A Subscription exists for href.",
+		"code": 201
+	  },
+	  {
+		"level": "INFO",
+		"msg": "No Subscription for href.",
+		"code": 205
+	  },
+	  {
+		"level": "INFO",
+		"msg": "Error during key encryption.",
+		"code": 228
+	  },
+	  {
+		"level": "INFO",
+		"msg": "An ACTIVE Subscription exists for ID.",
+		"code": 241
+	  },
+	  {
+		"level": "INFO",
+		"msg": "No operator for ID.",
+		"code": 501
+	  },
+	  {
+		"level": "ERROR",
+		"msg": "An unexpected error occurred while trying to handle your request. Please retry the request and contact your administrator if this problem persists.",
+		"code": 9999
+	  }
+]

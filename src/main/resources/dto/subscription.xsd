@@ -1,0 +1,88 @@
+<?xml version="1.0" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.actility.com/tpkwrls/ws/subscription"
+            xmlns:sub="http://www.actility.com/tpkwrls/ws/subscription"
+            elementFormDefault="unqualified">
+
+    <xsd:element name="messages">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="briefs">
+                    <xsd:complexType>
+                        <xsd:sequence minOccurs="0" maxOccurs="unbounded">
+                            <xsd:element name="brief">
+                                <xsd:complexType>
+                                    <xsd:sequence>
+                                        <xsd:element name="message" type="xsd:string"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+
+    </xsd:element>
+
+    <xsd:element name="subscription" type="sub:SubscriptionDto"/>
+
+    <xsd:complexType name="SubscriptionDto">
+        <xsd:sequence>
+            <xsd:element name="creationTimestamp" type="xsd:dateTime"/>
+            <xsd:element name="alarmStateNotifications" type="xsd:string"/>
+            <xsd:element name="state">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="value" type="xsd:string"/>
+                        <xsd:element name="timestamp" type="xsd:dateTime"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="subscriber">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="ID" type="xsd:string"/>
+                        <xsd:element name="organization" type="xsd:string"/>
+                        <xsd:element name="name" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="subscriptionNetwork" type="sub:SubscriptionNetworkDto"/>
+
+    <xsd:simpleType name="regulatorPolicy">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="DROP"/>
+            <xsd:enumeration value="MARK"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="SubscriptionNetworkDto">
+        <xsd:sequence>
+            <xsd:element name="ID" type="xsd:string"/>
+            <xsd:element name="commercialName" type="xsd:string"/>
+            <xsd:element name="commercialDescription" type="xsd:string"/>
+            <xsd:element name="ackedUplinkFrame" type="xsd:boolean"/>
+            <xsd:element name="downlinkTransmission" type="xsd:boolean"/>
+            <xsd:element name="uplinkRate" type="xsd:unsignedInt"/>
+            <xsd:element name="uplinkBucketSize" type="xsd:unsignedInt"/>
+            <xsd:element name="uplinkRegulatorPolicy" type="sub:regulatorPolicy"/>
+            <xsd:element name="downlinkRate" type="xsd:unsignedInt"/>
+            <xsd:element name="downlinkBucketSize" type="xsd:unsignedInt"/>
+            <xsd:element name="downlinkRegulatorPolicy" type="sub:regulatorPolicy"/>
+            <xsd:element name="mobility" type="xsd:boolean"/>
+            <xsd:element name="nwGeolocalization" type="xsd:boolean"/>
+            <xsd:element name="thingParkCloudRouting" type="xsd:boolean"/>
+            <xsd:element name="thirdPartyAppRouting" type="xsd:boolean"/>
+            <xsd:element name="addLrrMetaInfo" type="xsd:boolean"/>
+            <xsd:element name="spreadingFactorMin" type="xsd:unsignedInt"/>
+            <xsd:element name="uplinkLrrBufferingSize" type="xsd:unsignedInt"/>
+            <xsd:element name="uplinkLrrBufferingDuratione" type="xsd:duration"/>
+            <xsd:element name="maxDestinationPerRoute" type="xsd:unsignedInt"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

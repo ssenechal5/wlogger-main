@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxb:bindings xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+               xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+               jaxb:version="2.0">
+
+    <jaxb:bindings schemaLocation="subscription.xsd" node="/xsd:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="com.actility.thingpark.wlogger.dto.subscription.xsd"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+
+    <jaxb:bindings schemaLocation="wlogger.xsd" node="/xsd:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="com.actility.thingpark.wlogger.dto.wlogger.xsd"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+    
+    <jaxb:bindings schemaLocation="translations.xsd" node="/xsd:schema">
+        <jaxb:schemaBindings>
+            <jaxb:package name="com.actility.thingpark.wlogger.dto.translations.xsd"/>
+        </jaxb:schemaBindings>
+    </jaxb:bindings>
+    
+    <jaxb:bindings schemaLocation="suppliercallbacks.xsd" node="/xsd:schema">
+      <jaxb:schemaBindings>
+        <jaxb:package name="com.actility.thingpark.wlogger.smp.rest.dto.supplier"/>
+      </jaxb:schemaBindings>
+    </jaxb:bindings>
+    
+    <jaxb:bindings schemaLocation="error.xsd"  node="/xsd:schema">
+      <jaxb:schemaBindings>
+        <jaxb:package name="com.actility.thingpark.rest.dto"/>
+      </jaxb:schemaBindings>
+    </jaxb:bindings>
+  
+</jaxb:bindings>

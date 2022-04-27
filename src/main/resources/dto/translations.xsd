@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.actility.com/wlogger/ws/translations"
+	xmlns:tns="http://www.actility.com/wlogger/ws/translations" xmlns:c="http://www.actility.com/wlogger/ws/common">
+
+	<element name="translations" type="tns:TranslationsDto" />
+
+	<complexType name="TranslationsDto">
+		<sequence>
+			<element name="translation" type="tns:Translation" minOccurs="0"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<complexType name="Translation">
+		<attribute name="key" type="string" />
+		<attribute name="value" type="string" />
+		<!-- <sequence> -->
+		<!-- < name="key" type="string"/> -->
+		<!-- <element name="value" type="string"/> -->
+		<!-- </sequence> -->
+	</complexType>
+
+	<element name="errors" type="tns:ErrorMessagesDto" />
+
+	<complexType name="ErrorMessagesDto">
+		<sequence>
+			<element name="errorMessage" type="tns:ErrorMessage"
+				minOccurs="0" maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<complexType name="ErrorMessage">
+		<sequence>
+			<element name="code" type="int" />
+			<element name="level" type="tns:ErrorLevel" />
+			<element name="msg" type="string" />
+		</sequence>
+	</complexType>
+
+	<simpleType name="ErrorLevel">
+		<restriction base="string">
+			<enumeration value="ERROR" />
+			<enumeration value="WARNING" />
+			<enumeration value="INFO" />
+		</restriction>
+	</simpleType>
+
+</schema>

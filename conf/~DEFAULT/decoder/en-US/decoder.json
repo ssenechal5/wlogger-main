@@ -1,0 +1,130 @@
+[
+   {
+       "text": "raw",
+       "value": "raw"
+   },
+   {
+       "text": "Automatic",
+       "value": "auto"
+   },
+   {
+       "text": "-------------------------",
+       "value": "raw"
+   },
+   {
+       "text": "ASCII",
+       "value": "ASCII"
+   },
+   {
+       "text": "LoRaMote / NAMote",
+       "value": "LoRaMoteV1"
+   },
+   {
+       "text": "Abeeway Micro v2.0",
+       "value": "AbeewayV2"
+   },
+   {
+       "text": "Adeunis LoRaWan Demonstrator",
+       "value": "LoRaWanDemonstrator"
+   },
+   { 
+       "text": "Adeunis LoRaWan FTD", 
+       "value": "LoRaWanFTD" 
+   }, 
+   {
+       "text": "Adeunis Sensors / Pulse",
+       "value": "AdeunisSensor"
+   },
+   {
+       "text": "Allora Factory",
+       "value": "AlloraFactory"
+   },
+   {
+       "text": "ATIM ACW",
+       "value": "ATIM_ACW"
+   },
+   {
+       "text": "Ascoel",
+       "value": "ASCOEL"
+   },
+   {
+       "text": "Clickey Invenit",
+       "value": "ClickeyInvenit"
+   },
+   {
+       "text": "FXCN",
+       "value": "FXCN"
+   },
+   {
+       "text": "Multitech mDot Box",
+       "value": "MultitechmDotBox"
+   },
+   {
+       "text": "Multitech mDot Box V2",
+       "value": "MultitechmDotBoxV2"
+   },
+   {
+       "text": "RisingHF RHF1S001",
+       "value": "RHF1S001"
+   },
+   {
+       "text": "SAS v1",
+       "value": "SASv1"
+   },
+   {
+       "text": "Solvera Lynx ComboBox",
+       "value": "SolveraComBox"
+   },
+   {
+       "text": "Watteco",
+       "value": "Watteco"
+   },
+   {
+       "text": "Webdyn pulses",
+       "value": "WebdynPulses"
+   },
+   {
+       "text": "Netvox Sensor Series",
+       "value": "NetvoxV1"
+   },
+   { 
+       "text": "Netvox LoRaWan", 
+       "value": "NetvoxLoRaWan" 
+   }, 
+   {
+       "text": "STE SIU",
+       "value": "STElectronicsSIUv1"
+   },
+   {
+       "text": "GlobalSat LS-11x",
+       "value": "GlobalSatLS11xv1"
+   },
+   {
+       "text": "GlobalSat LT-100",
+       "value": "GlobalSatLT100v1"
+   },
+   {
+       "text": "RHFWMV1",
+       "value": "RHFWMV1"
+   },
+   {
+       "text": "BLoraTracker",
+       "value": "BLoraTracker"
+   },
+   {
+       "text": "AssetTracker",
+       "value": "AssetTracker"
+   },
+   {
+       "text": "AssetTrackerV1.7",
+       "value": "AssetTrackerV1.7"
+   },
+   {
+       "text": "AN_106",
+       "value": "AN_106"
+   }, 
+   { 
+       "text": "Schneider IAQ", 
+       "value": "SchneiderIAQ" 
+   } 
+]
