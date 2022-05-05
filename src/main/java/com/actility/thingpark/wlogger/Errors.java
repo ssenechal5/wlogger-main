@@ -40,6 +40,7 @@ public class Errors {
   // AUTH : 141 - 160
   public static final int AUTH_FAILED = 141;
   public static final int AUTH_SMP_FAILED = 142;
+  public static final int AUTH_SMP_FAILED_S = 144;
   public static final int AUTH_MISSING_ACCESS_CODE = 143;
   public static final int AUTH_NO_SUBSCRIPTION_FOR_HREF_FOUND = 149;
   public static final int AUTH_NO_SMP_SUBSCRIPTION_FOR_HREF_FOUND = 151;
@@ -89,6 +90,7 @@ public class Errors {
     messages[UNKNOWN_ID] = "Unknown ID: %s";
     messages[AUTH_FAILED] = "Failed to authenticate user: %s";
     messages[AUTH_SMP_FAILED] = "SMP authentication failed: %s";
+    messages[AUTH_SMP_FAILED_S] = "SMP authentication failed";
     messages[AUTH_MISSING_ACCESS_CODE] = "Missing access code";
     messages[AUTH_NO_SUBSCRIPTION_FOR_HREF_FOUND] = "No Subscription in WLogger for href: %s";
     messages[AUTH_NO_SMP_SUBSCRIPTION_FOR_HREF_FOUND] = "No SMP subscription for: %s";

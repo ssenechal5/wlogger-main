@@ -1,5 +1,7 @@
 package com.actility.thingpark.wlogger.accesscode;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.xml.bind.DatatypeConverter;
 import java.time.Clock;
 import java.time.Instant;
@@ -13,17 +15,18 @@ public class AccessCodePayload implements Payload {
 
   private Map<String, String> content = new TreeMap<>();
 
-  public AccessCodePayload(AccessCodeType type, String id) {
+  public AccessCodePayload(@Nonnull AccessCodeType type, @Nonnull String id) {
     Calendar c = Calendar.getInstance(UTC, Locale.US);
     c.setTimeInMillis(Instant.now(clock).toEpochMilli());
     content.put(TIMESTAMP_KEY, DatatypeConverter.printDateTime(c));
     content.put(type.getKey(), id);
   }
 
-  public AccessCodePayload(Map<String, String> content) {
+  public AccessCodePayload(@Nonnull Map<String, String> content) {
     this.content.putAll(content);
   }
 
+  @Nonnull
   public String stringify() {
     return AccessCodeUtils.stringify(content);
   }
@@ -46,6 +49,7 @@ public class AccessCodePayload implements Payload {
     return ((instant.toEpochMilli() - generationTime) > DEFAULT_TIMEOUT);
   }
 
+  @Nullable
   private AccessCodeType getType() {
     if (content.containsKey(AccessCodeType.SUBSCRIBER.getKey())) {
       return AccessCodeType.SUBSCRIBER;
@@ -56,6 +60,7 @@ public class AccessCodePayload implements Payload {
     return null;
   }
 
+  @Nullable
   public String getID() {
     AccessCodeType type = getType();
     if (type == AccessCodeType.USER) {
@@ -67,7 +72,7 @@ public class AccessCodePayload implements Payload {
     return null; // unreacheable
   }
 
-  void validateTimestamp(Instant instant) {
+  void validateTimestamp(@Nonnull Instant instant) {
     if (hasExpired(instant)) {
       throw new AccessCodeValidationException("Expired Access Code");
     }

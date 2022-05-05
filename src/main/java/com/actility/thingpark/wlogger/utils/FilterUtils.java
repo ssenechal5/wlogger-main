@@ -4,6 +4,7 @@ import com.actility.thingpark.wlogger.model.DeviceType;
 import com.mongodb.client.model.Filters;
 import org.bson.conversions.Bson;
 
+import javax.annotation.Nonnull;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +17,7 @@ public final class FilterUtils {
     private static final String ESCAPED_ASTERISK = Pattern.quote(STAR);
     public static final String POINT_STAR = ".*";
 
-    public static Bson beginWithOrEqual(final String fieldName, final String q, final HashMap<String,Boolean> map){
+    public static Bson beginWithOrEqual(@Nonnull final String fieldName, @Nonnull final String q, @Nonnull final HashMap<String,Boolean> map){
         if (map.get(q)) {
             return Filters.eq(fieldName, q);
         } else {
@@ -33,7 +34,7 @@ public final class FilterUtils {
      * @return the filter
      * @mongodb.driver.manual reference/operator/query/elemMatch $elemMatch
      */
-    public static Bson beginWith(final String fieldName, final String q){
+    public static Bson beginWith(@Nonnull final String fieldName, @Nonnull final String q){
         Pattern p = Pattern.compile("^" + parseSimplePattern(q));
         return Filters.regex(fieldName, p);
     }
@@ -46,7 +47,7 @@ public final class FilterUtils {
      * @param q simple pattern
      * @return escaped pattern
      */
-    public static String parseSimplePattern(final String q){
+    public static String parseSimplePattern(@Nonnull final String q){
         return Arrays.stream(q.split(ESCAPED_ASTERISK)).
                 map(Pattern::quote).
                 collect(Collectors.joining(POINT_STAR));

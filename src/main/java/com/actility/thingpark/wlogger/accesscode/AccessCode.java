@@ -2,6 +2,8 @@ package com.actility.thingpark.wlogger.accesscode;
 
 import org.apache.commons.lang3.StringUtils;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
@@ -11,7 +13,7 @@ public class AccessCode {
   private AccessCodePayload payload;
   private String signature;
 
-  public AccessCode(AccessCodePayload payload, String signature) {
+  public AccessCode(@Nonnull AccessCodePayload payload, @Nonnull String signature) {
     this.payload = payload;
     this.signature = signature;
   }
@@ -32,7 +34,8 @@ public class AccessCode {
     }
   }
 
-  public static AccessCode decodeContent(String accessCode) {
+  @Nonnull
+  public static AccessCode decodeContent(@Nullable String accessCode) {
     if (StringUtils.isBlank(accessCode)) {
       throw new DecodeAccessCodeException("Empty access code");
     }

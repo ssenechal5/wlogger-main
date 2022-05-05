@@ -6,8 +6,11 @@ import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import org.apache.commons.io.FileUtils;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import javax.validation.constraints.Null;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
@@ -73,7 +76,8 @@ public class StoreServiceImpl implements StoreService {
     this.wloggerConfig = wloggerConfig;
   }
 
-  private Optional<String> tryReadFile(File file) throws IOException {
+  @Nonnull
+  private Optional<String> tryReadFile(@Nonnull File file) throws IOException {
     if (!file.exists()) {
       return Optional.empty();
     }
@@ -81,7 +85,8 @@ public class StoreServiceImpl implements StoreService {
   }
 
   @Override
-  public String getDecoder(String operatorDomain, String locale, boolean lte)
+  @Nonnull
+  public String getDecoder(@Nullable String operatorDomain, @Nullable String locale, boolean lte)
       throws IOException {
     Optional<String> decoder = tryReadFile(getDecoderPath(operatorDomain, locale, lte));
     if (!decoder.isPresent()) {
@@ -91,7 +96,9 @@ public class StoreServiceImpl implements StoreService {
   }
 
   @Override
-  public String getSubtype(String operatorDomain, String locale, boolean lte, boolean np)
+  @Nonnull
+  public String getSubtype(
+      @Nullable String operatorDomain, @Nullable String locale, boolean lte, boolean np)
       throws IOException {
     Optional<String> subtype = tryReadFile(getSubtypePath(operatorDomain, locale, lte, np));
     if (!subtype.isPresent()) {
@@ -109,7 +116,9 @@ public class StoreServiceImpl implements StoreService {
     return SUBTYPE;
   }
 
-  private File getDecoderPath(String operatorDomain, String locale, boolean lte) {
+  @Nonnull
+  private File getDecoderPath(
+      @Nullable String operatorDomain, @Nullable String locale, boolean lte) {
     String file = "decoder-lora.json";
     if (lte) {
       file = "decoder-lte.json";
@@ -117,7 +126,9 @@ public class StoreServiceImpl implements StoreService {
     return getConfFile(operatorDomain, locale, "decoder", file);
   }
 
-  private File getSubtypePath(String operatorDomain, String locale, boolean lte, boolean np) {
+  @Nonnull
+  private File getSubtypePath(
+      @Nullable String operatorDomain, @Null String locale, boolean lte, boolean np) {
     String file = "subtype.json";
     if (lte) {
       file = "subtype-lte.json";
@@ -128,10 +139,12 @@ public class StoreServiceImpl implements StoreService {
     return getConfFile(operatorDomain, locale, "subtype", file);
   }
 
-  private File getConfFile(String operatorDomain,
-      String locale,
-      String folder,
-      String file) {
+  @Nonnull
+  private File getConfFile(
+      @Nullable String operatorDomain,
+      @Nullable String locale,
+      @Nonnull String folder,
+      @Nonnull String file) {
     if (isBlank(operatorDomain)) {
       operatorDomain = DEFAULT;
     }
