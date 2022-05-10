@@ -34,6 +34,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *         &lt;element name="thingparkPreviousBadConsecutivePwd" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
  *         &lt;element name="disclaimerMessage" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="disclaimerRequired" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
+ *         &lt;element name="apiOnly" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
@@ -69,7 +70,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
         "thingparkLastUnsuccessfulLogin",
         "thingparkPreviousBadConsecutivePwd",
         "disclaimerMessage",
-        "disclaimerRequired"
+        "disclaimerRequired",
+        "apiOnly"
 })
 public class UserAccountDto {
 

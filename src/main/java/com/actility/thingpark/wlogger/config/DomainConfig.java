@@ -8,10 +8,10 @@ import java.util.Optional;
 
 @Singleton
 public class DomainConfig {
-  private static final String GMAPS_API_KEY = UiMapConfig.PREFIX + ".gmaps.api-key";
-  private static final String GMAPS_ECJ_ENCRYPT_MODE = UiMapConfig.PREFIX + ".gmaps.ecj-encrypt-mode";
-  private static final String LEAFLET_URL_TEMPLATE = UiMapConfig.PREFIX + ".leaflet.url-template";
-  private static final String BMAPS_API_KEY = UiMapConfig.PREFIX + ".bmaps.api-key";
+  private static final String GMAPS_API_KEY = UiMapConfig.PREFIX + ".gmaps.apikey";
+  private static final String GMAPS_ECJ_ENCRYPT_MODE = UiMapConfig.PREFIX + ".gmaps.ecjencryptmode";
+  private static final String LEAFLET_URL_TEMPLATE = UiMapConfig.PREFIX + ".leaflet.urltemplate";
+  private static final String BMAPS_API_KEY = UiMapConfig.PREFIX + ".bmaps.apikey";
 
   @Inject
   Config config;

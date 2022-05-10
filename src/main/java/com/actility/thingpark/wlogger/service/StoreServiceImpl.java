@@ -86,7 +86,7 @@ public class StoreServiceImpl implements StoreService {
 
   @Override
   @Nonnull
-  public String getDecoder(@Nullable String operatorDomain, @Nullable String locale, boolean lte)
+  public String getDecoder(String operatorDomain, String locale, boolean lte)
       throws IOException {
     Optional<String> decoder = tryReadFile(getDecoderPath(operatorDomain, locale, lte));
     if (!decoder.isPresent()) {
@@ -97,8 +97,7 @@ public class StoreServiceImpl implements StoreService {
 
   @Override
   @Nonnull
-  public String getSubtype(
-      @Nullable String operatorDomain, @Nullable String locale, boolean lte, boolean np)
+  public String getSubtype(String operatorDomain, String locale, boolean lte, boolean np)
       throws IOException {
     Optional<String> subtype = tryReadFile(getSubtypePath(operatorDomain, locale, lte, np));
     if (!subtype.isPresent()) {
@@ -117,8 +116,7 @@ public class StoreServiceImpl implements StoreService {
   }
 
   @Nonnull
-  private File getDecoderPath(
-      @Nullable String operatorDomain, @Nullable String locale, boolean lte) {
+  private File getDecoderPath(String operatorDomain, String locale, boolean lte) {
     String file = "decoder-lora.json";
     if (lte) {
       file = "decoder-lte.json";
@@ -127,8 +125,7 @@ public class StoreServiceImpl implements StoreService {
   }
 
   @Nonnull
-  private File getSubtypePath(
-      @Nullable String operatorDomain, @Null String locale, boolean lte, boolean np) {
+  protected File getSubtypePath(String operatorDomain, String locale, boolean lte, boolean np) {
     String file = "subtype.json";
     if (lte) {
       file = "subtype-lte.json";
@@ -140,11 +137,7 @@ public class StoreServiceImpl implements StoreService {
   }
 
   @Nonnull
-  private File getConfFile(
-      @Nullable String operatorDomain,
-      @Nullable String locale,
-      @Nonnull String folder,
-      @Nonnull String file) {
+  private File getConfFile(String operatorDomain, String locale, String folder, String file) {
     if (isBlank(operatorDomain)) {
       operatorDomain = DEFAULT;
     }

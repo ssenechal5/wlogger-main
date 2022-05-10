@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <profiles>
+        <profile>
+            <id>repository</id>
+            <repositories>
+                <repository>
+                    <id>snapshots</id>
+                    <name>Actility snapshots</name>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <url>https://repo.int.actility.com/artifactory/mvn-snapshots</url>
+                </repository>
+                <repository>
+                    <id>releases</id>
+                    <name>Actility releases</name>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <url>https://repo.int.actility.com/artifactory/mvn-releases</url>
+                </repository>
+
+                <repository>
+                    <id>mirror</id>
+                    <name>Central mirror</name>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <url>https://repo.int.actility.com/artifactory/remote-repos</url>
+                </repository>
+            </repositories>
+
+            <pluginRepositories>
+                <pluginRepository>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <id>remote-repos</id>
+                    <name>actility</name>
+                    <url>https://repo.int.actility.com/artifactory/remote-repos</url>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+
+        <profile>
+            <id>configuration-unix</id>
+
+            <properties>
+                <npmCommand>npm.cmd</npmCommand>
+                <gruntCommand>grunt</gruntCommand>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>configuration-windows</id>
+
+            <properties>
+                <npmCommand>npm.cmd</npmCommand>
+                <gruntCommand>grunt.cmd</gruntCommand>
+            </properties>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>repository</activeProfile>
+        <activeProfile>configuration-unix</activeProfile>
+    </activeProfiles>
+</settings>

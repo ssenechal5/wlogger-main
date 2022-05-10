@@ -10,10 +10,7 @@ package com.actility.thingpark.smp.rest.dto.system;
 
 import com.actility.thingpark.smp.rest.dto.AuthenticateDto;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 
 /**
  * <p>Classe Java pour AuthenticateSystemDto complex type.
@@ -34,6 +31,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  * 
  */
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AuthenticateSystemDto", propOrder = {
     "domain"

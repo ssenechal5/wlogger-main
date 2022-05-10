@@ -11,10 +11,7 @@ package com.actility.thingpark.smp.rest.dto.application;
 import com.actility.thingpark.smp.rest.dto.AuthenticateDto;
 import com.actility.thingpark.smp.rest.dto.DomainRestrictionsDto;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -61,6 +58,7 @@ import java.util.List;
  * 
  * 
  */
+@XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "AuthenticateApplicationDto", propOrder = {
     "application",

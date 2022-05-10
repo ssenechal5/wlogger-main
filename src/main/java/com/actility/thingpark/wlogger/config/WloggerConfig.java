@@ -6,6 +6,7 @@ import io.smallrye.config.WithName;
 @ConfigMapping(prefix = "wlogger")
 public interface WloggerConfig {
 
+  @WithName("configuration-folder")
   String configurationFolder();
 
   String version();
@@ -28,4 +29,7 @@ public interface WloggerConfig {
 
   @WithName("subscriber.view-roaming-in-traffic")
   int subscriberViewRoamingInTraffic();
+
+  @WithName("max-inactive-interval")
+  int maxInactiveInterval();
 }

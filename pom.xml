@@ -78,12 +78,26 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-health</artifactId>
     </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-keycloak-authorization</artifactId>
+    </dependency>
 
     <!-- https://mvnrepository.com/artifact/com.google.code.findbugs/jsr305 -->
     <dependency>
       <groupId>com.google.code.findbugs</groupId>
       <artifactId>jsr305</artifactId>
       <version>3.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>com.actility.thingpark</groupId>
+      <artifactId>thingpark-decoder</artifactId>
+      <version>1.1.9</version>
+    </dependency>
+    <dependency>
+      <groupId>net.sf.opencsv</groupId>
+      <artifactId>opencsv</artifactId>
+      <version>2.0.1</version>
     </dependency>
     <dependency>
       <groupId>com.google.guava</groupId>
@@ -124,6 +138,17 @@
 
   </dependencies>
   <build>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <includes>
+          <include>**/application.properties</include>
+        </includes>
+      </resource>
+    </resources>
+
     <plugins>
       <plugin>
         <groupId>${quarkus.platform.group-id}</groupId>
@@ -160,7 +185,9 @@
         </configuration>
       </plugin>
     </plugins>
+
   </build>
+
   <profiles>
     <profile>
       <id>native</id>
@@ -197,4 +224,5 @@
       </properties>
     </profile>
   </profiles>
+
 </project>

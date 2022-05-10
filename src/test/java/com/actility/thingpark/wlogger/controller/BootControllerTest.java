@@ -83,6 +83,11 @@ class BootControllerTest {
         public int subscriberViewRoamingInTraffic() {
             return 0;
         }
+
+        @Override
+        public int maxInactiveInterval() {
+            return 0;
+        }
     };
     private SmpConfig smpConfig = new SmpConfig() {
         @Override
@@ -144,6 +149,26 @@ class BootControllerTest {
 
         @Override
         public String directAccess() {
+            return null;
+        }
+
+        @Override
+        public String gmapsApikey() {
+            return null;
+        }
+
+        @Override
+        public String gmapsEcjencryptmode() {
+            return null;
+        }
+
+        @Override
+        public String bmapsApikey() {
+            return null;
+        }
+
+        @Override
+        public String leafletUrltemplate() {
             return null;
         }
     };

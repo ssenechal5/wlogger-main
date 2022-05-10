@@ -1,5 +1,6 @@
 package com.actility.thingpark.wlogger.auth;
 
+import com.actility.thingpark.wlogger.config.WloggerConfig;
 import io.quarkus.arc.DefaultBean;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
@@ -16,14 +17,16 @@ public class SessionStore implements Store {
 
     final HttpServletRequest request;
 
+    private WloggerConfig wloggerConfig;
+
     final int maxInactiveInterval;
 
     @Inject
     SessionStore(HttpServletRequest request,
-                 @ConfigProperty(name = "wlogger.max-inactive-interval")
-                         int maxInactiveInterval) {
+                 final WloggerConfig wloggerConfig) {
         this.request = request;
-        this.maxInactiveInterval = maxInactiveInterval;
+        this.wloggerConfig = wloggerConfig;
+        this.maxInactiveInterval = this.wloggerConfig.maxInactiveInterval();
     }
 
     @Override

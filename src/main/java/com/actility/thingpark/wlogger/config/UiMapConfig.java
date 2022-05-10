@@ -12,4 +12,17 @@ public interface UiMapConfig {
 
   @WithName("direct.access")
   String directAccess();
+
+  @WithName("gmaps.apikey")
+  String gmapsApikey();
+
+  @WithName("gmaps.ecjencryptmode")
+  String gmapsEcjencryptmode();
+
+  @WithName("bmaps.apikey")
+  String bmapsApikey();
+
+  @WithName("leaflet.urltemplate")
+  String leafletUrltemplate();
+
 }

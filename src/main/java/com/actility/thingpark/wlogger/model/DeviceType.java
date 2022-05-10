@@ -1,5 +1,7 @@
 package com.actility.thingpark.wlogger.model;
 
+import javax.annotation.Nonnull;
+
 public enum DeviceType {
   LORA(0),
   LTE(1);
@@ -10,6 +12,7 @@ public enum DeviceType {
     this.value = value;
   }
 
+  @Nonnull
   public static DeviceType parseValue(int value) {
     for (DeviceType deviceType : values()) {
       if (value == deviceType.getValue()) {
