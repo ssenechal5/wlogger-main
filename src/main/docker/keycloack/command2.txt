@@ -1,0 +1,7 @@
+docker run -p 8080:8080
+--name keycloak
+-e KEYCLOAK_ADMIN=admin
+-e KEYCLOAK_ADMIN_PASSWORD=admin
+-e KEYCLOAK_IMPORT=/tmp/tpw-actility-ope-realm.json
+-v ./tpw-actility-ope-realm.json:/tmp/tpw-actility-ope-realm.json
+actility-base-images.repo.int.actility.com/centos/acy-keycloak:4.4.0.Final-2

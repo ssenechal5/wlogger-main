@@ -100,7 +100,8 @@ public class AuthenticationService {
         if (user == null || user.getOidcUserID() == null || !user.getOidcUserID().equals(oidcUserId)) {
             try {
                 if (ProfileManager.getActiveProfile().equals("dev")) {
-                    String appAccessCode = this.accessCodeService.generateSubscriberAccessCode("199906997");
+//                    String appAccessCode = this.accessCodeService.generateSubscriberAccessCode("199906997");
+                    String appAccessCode = this.accessCodeService.generateSubscriberAccessCode("199983788");
                     return internalAccessCodeLogin(appAccessCode, oidcUserId);
                 } else {
                     // Retrieve user identifier

@@ -9,6 +9,7 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.ws.rs.WebApplicationException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -33,6 +34,10 @@ public class EngineClientImpl implements EngineClient {
   public List<DecodeBatchOutputItem> decodeBatch(List<DecodeBatchInputItem> body, String subscriberId, String realmId)
       throws EngineException {
     try {
+      logger.warning("iotFlowApi.decodeBatch( " + body.size() + " / " + subscriberId+ " / " +realmId);
+      if (body.size() <= 0)
+        return new ArrayList<>();
+
       return this.iotFlowApi.decodeBatch(body, subscriberId, realmId);
     } catch (WebApplicationException e) {
       logger.severe(ENGINE_ERROR_HTTP + e.getMessage());
