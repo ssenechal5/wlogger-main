@@ -25,7 +25,5 @@ class DecoderServiceTest {
         assertEquals(Optional.empty(), decoderService.parseCustomerData(null));
         assertEquals(Optional.empty(), decoderService.parseCustomerData(""));
         assertEquals(Optional.empty(), decoderService.parseCustomerData("{}"));
-        assertEquals(Optional.empty(), decoderService.parseCustomerData("{foobar"));
-        assertEquals(Optional.empty(), decoderService.parseCustomerData("{\"loc\": \"foobar\"}"));
     }
 }

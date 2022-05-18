@@ -34,9 +34,10 @@ public class EngineClientImpl implements EngineClient {
   public List<DecodeBatchOutputItem> decodeBatch(List<DecodeBatchInputItem> body, String subscriberId, String realmId)
       throws EngineException {
     try {
-      logger.warning("iotFlowApi.decodeBatch( " + body.size() + " / " + subscriberId+ " / " +realmId);
-      if (body.size() <= 0)
-        return new ArrayList<>();
+      if (body != null)
+        logger.warning("iotFlowApi.decodeBatch( " + body.size() + " / " + subscriberId+ " / " +realmId);
+      if (body == null || (body != null && body.size() <= 0))
+        return null;
 
       return this.iotFlowApi.decodeBatch(body, subscriberId, realmId);
     } catch (WebApplicationException e) {
