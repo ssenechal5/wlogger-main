@@ -10,8 +10,7 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("/v1")
-// @RegisterRestClient(configKey = "engine-api")
-@RegisterRestClient
+@RegisterRestClient(configKey = "engine-api")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Singleton
