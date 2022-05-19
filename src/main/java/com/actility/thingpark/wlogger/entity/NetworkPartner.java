@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "supplierID"))
-@EntityListeners(AuditListener.class)
+//@EntityListeners(AuditListener.class)
 public class NetworkPartner extends OperatedEntity implements Auditable {
 
   @Version

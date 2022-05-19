@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "subscriberID"))
-@EntityListeners(AuditListener.class)
+//@EntityListeners(AuditListener.class)
 public class Subscription extends OperatedEntity implements Auditable {
 
   @Length(max = 255)

@@ -9,6 +9,7 @@ const PropertiesReader = require('properties-reader');
 // configuration properties
 const properties = PropertiesReader(__dirname + '/../src/main/resources/application.properties');
 const serverPort = getProperty(properties, 'quarkus.http.port');
+// const serverPort = 8080;
 const thingparkUrl = getProperty(properties, 'wlogger.smp-client.uri');
 const keycloakUrl = properties.get('%dev.keycloak.uri') || thingparkUrl;
 
